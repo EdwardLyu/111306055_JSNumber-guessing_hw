@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>猜數字遊戲</title>
+  <script>
+    let randomNumber = generateRandomNumber();
+
+    function generateRandomNumber() {
+      return Math.floor(Math.random() * 10) + 1;
+    }
+
+    function playGame() {
+      randomNumber = generateRandomNumber();
+
+      let userGuess = parseInt(window.prompt('randomly guess a number from 1 to 10'));
+
+      if (isNaN(userGuess)) {
+        alert('請輸入有效的數字！');
+      } else {
+        checkGuess(userGuess);
+      }
+    }
+
+    function checkGuess(guess) {
+      if (guess === randomNumber) {
+        alert('congratulation! you are right');
+      } else {
+        alert('guess again');
+        playGame(); // 猜錯時重新開始遊戲
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>猜數字遊戲</h1>
+  <button onclick="playGame()">開始遊戲</button>
+</body>
+</html>
